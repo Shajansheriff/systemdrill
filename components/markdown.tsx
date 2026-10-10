@@ -14,8 +14,8 @@ export function Markdown({ body, source }: { body: string; source: string }) {
       if (isValidElement<{ className?: string; children?: ReactNode }>(children) && children.props.className === "language-mermaid") {
         return <Mermaid chart={String(children.props.children).trim()}/>;
       }
-      return <div className="code-wrapper"><pre>{children}</pre></div>;
+      return <div className="code-wrapper"><pre tabIndex={0} role="region" aria-label="Code example, scroll horizontally if needed">{children}</pre></div>;
     },
-    table: ({ children }) => <div className="table-wrapper"><table>{children}</table></div>,
+    table: ({ children }) => <div className="table-wrapper" tabIndex={0} role="region" aria-label="Study table, scroll horizontally if needed"><table>{children}</table></div>,
   }}>{body}</ReactMarkdown></div>;
 }
